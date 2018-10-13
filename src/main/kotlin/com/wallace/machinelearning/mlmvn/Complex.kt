@@ -35,10 +35,6 @@ data class Complex(val real: Double, val imaginary: Double = 0.0) {
         return copy(real = real + scalar)
     }
 
-    operator fun Double.plus(complex: Complex): Complex {
-        return complex + this
-    }
-
     operator fun minus(other: Complex): Complex {
         val newReal = real - other.real
         val newImag = imaginary - other.imaginary
@@ -47,10 +43,6 @@ data class Complex(val real: Double, val imaginary: Double = 0.0) {
 
     operator fun minus(scalar: Double): Complex {
         return copy(real = real - scalar)
-    }
-
-    operator fun Double.minus(complex: Complex): Complex {
-        return complex.copy(real = this - complex.real)
     }
 
     operator fun times(other: Complex): Complex {
@@ -63,10 +55,6 @@ data class Complex(val real: Double, val imaginary: Double = 0.0) {
         return Complex(real * scalar, imaginary * scalar)
     }
 
-    operator fun Double.times(complex: Complex): Complex {
-        return complex * this
-    }
-
     operator fun div(other: Complex): Complex {
         val conjugate = other.conjugate
         return (this * conjugate) / (other * conjugate).real
@@ -74,10 +62,6 @@ data class Complex(val real: Double, val imaginary: Double = 0.0) {
 
     operator fun div(scalar: Double): Complex {
         return Complex(real / scalar, imaginary / scalar)
-    }
-
-    operator fun Double.div(complex: Complex): Complex {
-        return (this * complex.conjugate) / (complex * complex.conjugate)
     }
 
     companion object {
