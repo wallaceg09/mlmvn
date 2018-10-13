@@ -121,7 +121,7 @@ data class Complex(val real: Double, val imaginary: Double = 0.0) {
         fun exp(complex: Complex): Complex {
             val realExp = kotlin.math.exp(complex.real)
             val newReal = realExp * kotlin.math.cos(complex.imaginary)
-            val newImag = realExp * kotlin.math.cos(complex.imaginary)
+            val newImag = realExp * kotlin.math.sin(complex.imaginary)
             return Complex(newReal, newImag)
         }
     }
