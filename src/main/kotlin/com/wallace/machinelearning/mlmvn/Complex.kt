@@ -68,7 +68,8 @@ data class Complex(val real: Double, val imaginary: Double = 0.0) {
     }
 
     operator fun div(other: Complex): Complex {
-        return (this * other.conjugate) / (other * other.conjugate)
+        val conjugate = other.conjugate
+        return (this * conjugate) / (other * conjugate).real
     }
 
     operator fun div(scalar: Double): Complex {
