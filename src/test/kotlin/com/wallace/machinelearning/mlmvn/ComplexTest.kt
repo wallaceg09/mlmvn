@@ -6,8 +6,6 @@ import kotlin.math.atan
 import kotlin.math.sqrt
 
 class ComplexTest {
-    private val accuracyDelta = 10e-10
-
     private val complex1 = Complex(2.0, 3.0)
     private val complex2 = Complex(5.0, 10.0)
 
@@ -137,10 +135,5 @@ class ComplexTest {
         val exp = Complex.exp(complex1)
         val expected = Complex(-7.3151100949011025174865361510507893218698794489446322367, 1.0427436562359044141015039404625521939183300604422348975)
         assertEquals(expected, exp, accuracyDelta)
-    }
-
-    fun assertEquals(expected: Complex, actual: Complex, delta: Double) {
-        assertEquals("Real component is inaccurate.", expected.real, actual.real, delta)
-        assertEquals("Imaginary component is inaccurate.", expected.imaginary, actual.imaginary, delta)
     }
 }
