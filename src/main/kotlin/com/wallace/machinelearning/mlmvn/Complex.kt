@@ -25,6 +25,10 @@ data class Complex(val real: Double, val imaginary: Double = 0.0) {
      */
     val conjugate: Complex by lazy { this.copy(imaginary = -imaginary) }
 
+    val isNaN: Boolean by lazy { real.isNaN() || imaginary.isNaN() }
+
+    val isInfinite: Boolean by lazy { real.isInfinite() || imaginary.isInfinite() }
+
     operator fun plus(other: Complex): Complex {
         val newReal = real + other.real
         val newImag = imaginary + other.imaginary
@@ -84,6 +88,16 @@ data class Complex(val real: Double, val imaginary: Double = 0.0) {
          * `(2 * pi) + i`
          */
         val TWO_PI_I = Complex(kotlin.math.PI * 2.0, 1.0)
+
+        /**
+         * `NaN + Nan i`
+         */
+        val NAN = Complex(Double.NaN, Double.NaN)
+
+        /**
+         * `INF + INF i`
+         */
+        val INFINITE = Complex(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY)
 
         /**
          * The sine operation of the complex number.

@@ -136,4 +136,11 @@ class ComplexTest {
         val expected = Complex(-7.3151100949011025174865361510507893218698794489446322367, 1.0427436562359044141015039404625521939183300604422348975)
         assertEquals(expected, exp, accuracyDelta)
     }
+
+    @Test
+    fun exp0() {
+        val exp0 = Complex.exp(Complex.ZERO)
+        val expected = Complex(1.0, 0.0)
+        assertEquals(expected, exp0, accuracyDelta)
+    }
 }
