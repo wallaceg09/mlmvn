@@ -1,6 +1,9 @@
 package com.wallace.machinelearning.mlmvn.activation
 
-import com.wallace.machinelearning.mlmvn.*
+import com.wallace.machinelearning.mlmvn.Complex
+import com.wallace.machinelearning.mlmvn.Neuron
+import com.wallace.machinelearning.mlmvn.accuracyDelta
+import com.wallace.machinelearning.mlmvn.assertEquals
 import org.junit.Test
 import kotlin.math.PI
 import kotlin.math.cos
@@ -19,9 +22,8 @@ class DiscreteMVNActivationFunctionTest {
     @Test
     fun activateAtSector0() {
         val complex = argumentToComplex(0.0)
-        val inputBinding = NeuralInputBinding(weightlessNeuron, listOf(complex))
 
-        val activation = discreteMVNActivationFunction.activate(inputBinding)
+        val activation = discreteMVNActivationFunction.activate(weightlessNeuron, listOf(complex))
 
         val expected = Complex.exp(Complex.ZERO)
 
@@ -32,8 +34,7 @@ class DiscreteMVNActivationFunctionTest {
     fun activateBetweenSector0and1() {
         val complex = argumentToComplex(PI - 0.1)
 
-        val inputBinding = NeuralInputBinding(weightlessNeuron, listOf(complex))
-        val activation = discreteMVNActivationFunction.activate(inputBinding)
+        val activation = discreteMVNActivationFunction.activate(weightlessNeuron, listOf(complex))
 
         val expected = Complex.exp(Complex.ZERO)
 
@@ -44,8 +45,7 @@ class DiscreteMVNActivationFunctionTest {
     fun activateAtSector1() {
         val complex = argumentToComplex(PI)
 
-        val inputBinding = NeuralInputBinding(weightlessNeuron, listOf(complex))
-        val activation = discreteMVNActivationFunction.activate(inputBinding)
+        val activation = discreteMVNActivationFunction.activate(weightlessNeuron, listOf(complex))
 
         val expected = Complex.exp(Complex(0.0, PI))
 
@@ -56,8 +56,7 @@ class DiscreteMVNActivationFunctionTest {
     fun activateAfterSector1() {
         val complex = argumentToComplex(PI + 0.1)
 
-        val inputBinding = NeuralInputBinding(weightlessNeuron, listOf(complex))
-        val activation = discreteMVNActivationFunction.activate(inputBinding)
+        val activation = discreteMVNActivationFunction.activate(weightlessNeuron, listOf(complex))
 
         val expected = Complex.exp(Complex(0.0, PI))
 
