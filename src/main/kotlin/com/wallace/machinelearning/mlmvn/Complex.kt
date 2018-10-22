@@ -20,10 +20,16 @@ data class Complex(val real: Double, val imaginary: Double = 0.0) {
     val argument: Double by lazy { kotlin.math.atan2(imaginary, real) }
 
     /**
-     * The complex-conjugate of this complex number.
-     *
+     * The complex-conjugate of this complex number.     *
      */
     val conjugate: Complex by lazy { this.copy(imaginary = -imaginary) }
+
+    /**
+     * Returns this complex number represented on the unit circle.
+     *
+     * The returned complex number will maintain the same phase as this number, however its magnitude will be 1.
+     */
+    val unitary: Complex by lazy { this / this.magnitude }
 
     val isNaN: Boolean by lazy { real.isNaN() || imaginary.isNaN() }
 
@@ -68,6 +74,11 @@ data class Complex(val real: Double, val imaginary: Double = 0.0) {
         return Complex(real / scalar, imaginary / scalar)
     }
 
+    override fun toString(): String {
+        val plusMinus = if (imaginary > 0) "+" else "-"
+        return "$real $plusMinus ${Math.abs(imaginary)}i"
+    }
+
     companion object {
         /**
          * `0 + i`
@@ -85,9 +96,9 @@ data class Complex(val real: Double, val imaginary: Double = 0.0) {
         val ONE = Complex(1.0, 0.0)
 
         /**
-         * `(2 * pi) + i`
+         * `(2 * pi) i`
          */
-        val TWO_PI_I = Complex(kotlin.math.PI * 2.0, 1.0)
+        val TWO_PI_I = Complex(0.0, kotlin.math.PI * 2.0)
 
         /**
          * `NaN + Nan i`

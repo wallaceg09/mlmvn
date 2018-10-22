@@ -33,6 +33,13 @@ class ComplexTest {
     }
 
     @Test
+    fun getUnitary() {
+        val unitary = complex1.unitary
+        assertEquals(1.0, unitary.magnitude, accuracyDelta)
+        assertEquals(complex1.argument, unitary.argument, accuracyDelta)
+    }
+
+    @Test
     fun plusComplex() {
         val plus = complex1 + complex2
         val expected = Complex(7.0, 13.0)
@@ -140,7 +147,14 @@ class ComplexTest {
     @Test
     fun exp0() {
         val exp0 = Complex.exp(Complex.ZERO)
-        val expected = Complex(1.0, 0.0)
+        val expected = Complex.ONE
         assertEquals(expected, exp0, accuracyDelta)
+    }
+
+    @Test
+    fun expTwoPiI() {
+        val expTwoPiI = Complex.exp(Complex.TWO_PI_I)
+        val expected = Complex.ONE
+        assertEquals(expected, expTwoPiI, accuracyDelta)
     }
 }
