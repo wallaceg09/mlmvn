@@ -19,11 +19,14 @@ class MVNErrorCorrectionFunction : ErrorCorrectionFunction {
      * For the rest of the weights: `weight[n] + (learningRate / (activationBinding.inputs.size + 1)) * error * input[n].conjugate`
      */
     override fun correct(activationBinding: NeuralTrainingActivationBinding, error: Complex, learningRate: Double): Neuron {
-        val bias = activationBinding.neuron.bias + (error * learningRate / (activationBinding.inputs.size + 1.0))
+        // Optimization to keep this from being calculated multiple times
+        val errorTimesLearningDivideInputs = error * learningRate / (activationBinding.inputs.size + 1.0)
+
+        val bias = activationBinding.neuron.bias + errorTimesLearningDivideInputs
         val inputConjugate = activationBinding.inputs.map { it.conjugate }
 
         val weights = activationBinding.neuron.weights.zip(inputConjugate) { weight, inputConj ->
-            weight + (error * learningRate / (activationBinding.inputs.size + 1.0) * inputConj)
+            weight + (errorTimesLearningDivideInputs * inputConj)
         }
 
         return Neuron(bias, weights)
