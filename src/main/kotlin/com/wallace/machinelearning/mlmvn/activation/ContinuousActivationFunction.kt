@@ -7,7 +7,7 @@ import com.wallace.machinelearning.mlmvn.Neuron
 /**
  * Continuous activation function.
  */
-class ContinuousMVNActivationFunction : ActivationFunction {
+class ContinuousActivationFunction : ActivationFunction {
     override fun activate(neuron: Neuron, inputs: List<Complex>): Complex {
         val weightedSum = neuron.weightedSum(inputs)
         return weightedSum / weightedSum.argument

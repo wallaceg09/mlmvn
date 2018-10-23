@@ -19,7 +19,7 @@ import com.wallace.machinelearning.mlmvn.Neuron
  *
  * @param numberOfSectors the number of unitary sectors
  */
-class DiscreteMVNActivationFunction(private val numberOfSectors: Int) : ActivationFunction {
+class DiscreteActivationFunction(private val numberOfSectors: Int) : ActivationFunction {
     private val sectors: List<Double> by lazy {
         val list = mutableListOf<Double>()
 

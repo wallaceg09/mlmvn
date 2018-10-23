@@ -3,7 +3,7 @@ package com.wallace.machinelearning.mlmvn.correction
 import com.wallace.machinelearning.mlmvn.Complex
 import com.wallace.machinelearning.mlmvn.Neuron
 import com.wallace.machinelearning.mlmvn.accuracyDelta
-import com.wallace.machinelearning.mlmvn.activation.DiscreteMVNActivationFunction
+import com.wallace.machinelearning.mlmvn.activation.DiscreteActivationFunction
 import com.wallace.machinelearning.mlmvn.assertEquals
 import org.junit.Test
 
@@ -13,7 +13,7 @@ class MVNErrorCorrectionFunctionTest {
     val inputs = listOf(Complex(4.0, 8.0), Complex(5.0, 9.0))
 
     val neuron = Neuron(bias, weights)
-    val activationFunction = DiscreteMVNActivationFunction(5)
+    val activationFunction = DiscreteActivationFunction(5)
     val errorCorrectionFunction = MVNErrorCorrectionFunction()
 
     @Test

@@ -9,7 +9,7 @@ import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
 
-class DiscreteMVNActivationFunctionTest {
+class DiscreteActivationFunctionTest {
     private val weightlessNeuron: Neuron by lazy {
         val bias = Complex.ZERO
         val weights = listOf(Complex.ONE)
@@ -17,7 +17,7 @@ class DiscreteMVNActivationFunctionTest {
         Neuron(bias, weights)
     }
 
-    private val discreteMVNActivationFunction = DiscreteMVNActivationFunction(2)
+    private val discreteMVNActivationFunction = DiscreteActivationFunction(2)
 
     @Test
     fun activateAtSector0() {

@@ -6,10 +6,10 @@ import com.wallace.machinelearning.mlmvn.accuracyDelta
 import com.wallace.machinelearning.mlmvn.assertEquals
 import org.junit.Test
 
-class ContinuousMVNActivationFunctionTest {
+class ContinuousActivationFunctionTest {
     private val neuron = Neuron(Complex(2.0, 3.0), listOf(Complex(4.0, 5.0), Complex(6.0, 7.0)))
     private val inputs = listOf(Complex(8.0, 9.0), Complex(10.0, 11.0))
-    val activationFunction = ContinuousMVNActivationFunction()
+    val activationFunction = ContinuousActivationFunction()
 
     @Test
     fun activate() {
