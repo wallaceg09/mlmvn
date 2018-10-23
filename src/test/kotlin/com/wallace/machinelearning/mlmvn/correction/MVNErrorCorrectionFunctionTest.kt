@@ -35,11 +35,5 @@ class MVNErrorCorrectionFunctionTest {
         for (i in 0 until corrected.weights.size) {
             assertEquals(correctedWeights[i], corrected.weights[i], accuracyDelta)
         }
-
-        println("Initial: $neuron")
-        println("Activation: ${activationBinding.activation}")
-        println("Desired: $desired")
-        println("Error: $error")
-        println("Corrected: $corrected")
     }
 }
