@@ -1,8 +1,6 @@
 package com.wallace.math
 
-import kotlin.math.PI
-import kotlin.math.cosh
-import kotlin.math.sinh
+import kotlin.math.*
 
 /**
  * Encapsulates a complex number in the form of `a + bi`.
@@ -149,6 +147,15 @@ data class Complex(val real: Double, val imaginary: Double = 0.0) {
             val newReal = realExp * kotlin.math.cos(complex.imaginary)
             val newImag = realExp * kotlin.math.sin(complex.imaginary)
             return Complex(newReal, newImag)
+        }
+
+        /**
+         * Returns a Complex number from its polar representation.
+         */
+        fun fromPolar(theta: Double, magnitude: Double): Complex {
+            val real = magnitude * cos(theta)
+            val imaginary = magnitude * sin(theta)
+            return Complex(real, imaginary)
         }
     }
 }

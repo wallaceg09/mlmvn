@@ -1,9 +1,9 @@
 package com.wallace.machinelearning.mlmvn
 
 import com.wallace.math.*
-import com.wallace.math.Complex
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import kotlin.math.PI
 import kotlin.math.atan
 import kotlin.math.sqrt
 
@@ -158,5 +158,16 @@ class ComplexTest {
         val expTwoPiI = Complex.exp(Complex.TWO_PI_I)
         val expected = Complex.ONE
         assertEquals(expected, expTwoPiI, accuracyDelta)
+    }
+
+    @Test
+    fun fromPolar() {
+        val magnitude = 5.0
+        val theta = PI / 3
+
+        val fromPolar = Complex.fromPolar(theta, magnitude)
+        val expected = Complex(2.5, 4.33012701892219323381861585376468091735701313452595157013)
+
+        assertEquals(expected, fromPolar, accuracyDelta)
     }
 }
