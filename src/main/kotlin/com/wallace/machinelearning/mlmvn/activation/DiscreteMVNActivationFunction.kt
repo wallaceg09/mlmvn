@@ -4,6 +4,21 @@ import com.wallace.machinelearning.mlmvn.Complex
 import com.wallace.machinelearning.mlmvn.NeuralInputBinding
 import com.wallace.machinelearning.mlmvn.Neuron
 
+/**
+ * Discrete activation function.
+ *
+ * The discrete activation function is such that its output is a position on the unit circle corresponding to some kth
+ * root of unity. For example, the possible outputs values for a discrete activation with 4 possible sectors are:
+ *
+ * - 1
+ * - i
+ * - -1
+ * - -i
+ *
+ * where `i = sqrt(-1)`.
+ *
+ * @param numberOfSectors the number of unitary sectors
+ */
 class DiscreteMVNActivationFunction(private val numberOfSectors: Int) : ActivationFunction {
     private val sectors: List<Double> by lazy {
         val list = mutableListOf<Double>()
