@@ -1,10 +1,10 @@
 package com.wallace.machinelearning.mlmvn.correction
 
-import com.wallace.machinelearning.mlmvn.Complex
 import com.wallace.machinelearning.mlmvn.Neuron
 import com.wallace.machinelearning.mlmvn.accuracyDelta
 import com.wallace.machinelearning.mlmvn.activation.DiscreteActivationFunction
 import com.wallace.machinelearning.mlmvn.assertEquals
+import com.wallace.math.Complex
 import org.junit.Test
 
 class MVNErrorCorrectionFunctionTest {

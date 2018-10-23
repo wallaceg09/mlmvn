@@ -1,8 +1,8 @@
 package com.wallace.machinelearning.mlmvn.correction
 
-import com.wallace.machinelearning.mlmvn.Complex
 import com.wallace.machinelearning.mlmvn.Neuron
 import com.wallace.machinelearning.mlmvn.activation.NeuralTrainingActivationBinding
+import com.wallace.math.Complex
 
 /**
  * Error correction function for a single Multi-Valued Neuron (MVN).

@@ -1,5 +1,7 @@
 package com.wallace.machinelearning.mlmvn
 
+import com.wallace.math.*
+import com.wallace.math.Complex
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import kotlin.math.atan

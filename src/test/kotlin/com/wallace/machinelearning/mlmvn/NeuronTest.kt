@@ -1,5 +1,6 @@
 package com.wallace.machinelearning.mlmvn
 
+import com.wallace.math.Complex
 import org.junit.Before
 import org.junit.Test
 

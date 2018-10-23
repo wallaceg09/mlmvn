@@ -1,9 +1,9 @@
 package com.wallace.machinelearning.mlmvn.activation
 
-import com.wallace.machinelearning.mlmvn.Complex
 import com.wallace.machinelearning.mlmvn.Neuron
 import com.wallace.machinelearning.mlmvn.accuracyDelta
 import com.wallace.machinelearning.mlmvn.assertEquals
+import com.wallace.math.Complex
 import org.junit.Test
 import kotlin.math.PI
 import kotlin.math.cos

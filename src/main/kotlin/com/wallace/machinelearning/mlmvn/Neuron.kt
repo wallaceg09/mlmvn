@@ -1,5 +1,7 @@
 package com.wallace.machinelearning.mlmvn
 
+import com.wallace.math.Complex
+
 /**
  * Multi-Valued [Neuron].
  *

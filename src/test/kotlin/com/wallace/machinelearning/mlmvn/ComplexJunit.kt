@@ -1,5 +1,6 @@
 package com.wallace.machinelearning.mlmvn
 
+import com.wallace.math.Complex
 import org.junit.Assert
 
 val accuracyDelta = 10e-10

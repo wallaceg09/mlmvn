@@ -1,4 +1,4 @@
-package com.wallace.machinelearning.mlmvn
+package com.wallace.math
 
 operator fun Double.plus(complex: Complex): Complex {
     return complex + this

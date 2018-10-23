@@ -1,5 +1,6 @@
-package com.wallace.machinelearning.mlmvn
+package com.wallace.math
 
+import kotlin.math.PI
 import kotlin.math.cosh
 import kotlin.math.sinh
 
@@ -98,7 +99,7 @@ data class Complex(val real: Double, val imaginary: Double = 0.0) {
         /**
          * `(2 * pi) i`
          */
-        val TWO_PI_I = Complex(0.0, kotlin.math.PI * 2.0)
+        val TWO_PI_I = Complex(0.0, PI * 2.0)
 
         /**
          * `NaN + Nan i`
