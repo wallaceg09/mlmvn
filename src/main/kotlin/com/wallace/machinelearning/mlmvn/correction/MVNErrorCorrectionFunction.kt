@@ -1,7 +1,6 @@
 package com.wallace.machinelearning.mlmvn.correction
 
 import com.wallace.machinelearning.mlmvn.Neuron
-import com.wallace.machinelearning.mlmvn.activation.NeuralTrainingActivationBinding
 import com.wallace.math.Complex
 
 /**
@@ -18,14 +17,14 @@ class MVNErrorCorrectionFunction : ErrorCorrectionFunction {
      *
      * For the rest of the weights: `weight[n] + (learningRate / (activationBinding.inputs.size + 1)) * error * input[n].conjugate`
      */
-    override fun correct(activationBinding: NeuralTrainingActivationBinding, error: Complex, learningRate: Double): Neuron {
+    override fun correct(neuron: Neuron, inputs: List<Complex>, error: Complex, learningRate: Double): Neuron {
         // Optimization to keep this from being calculated multiple times
-        val errorTimesLearningDivideInputs = error * learningRate / (activationBinding.inputs.size + 1.0)
+        val errorTimesLearningDivideInputs = error * learningRate / (inputs.size + 1.0)
 
-        val bias = activationBinding.neuron.bias + errorTimesLearningDivideInputs
-        val inputConjugate = activationBinding.inputs.map { it.conjugate }
+        val bias = neuron.bias + errorTimesLearningDivideInputs
+        val inputConjugate = inputs.map { it.conjugate }
 
-        val weights = activationBinding.neuron.weights.zip(inputConjugate) { weight, inputConj ->
+        val weights = neuron.weights.zip(inputConjugate) { weight, inputConj ->
             weight + (errorTimesLearningDivideInputs * inputConj)
         }
 

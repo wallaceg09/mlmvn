@@ -18,11 +18,11 @@ class MVNErrorCorrectionFunctionTest {
 
     @Test
     fun correct() {
-        val activationBinding = activationFunction.activateTrain(neuron, inputs)
+        val activation = activationFunction.activate(neuron, inputs)
         val desired = Complex.exp((Complex.TWO_PI_I * 4.0) / 5.0)
-        val error = desired - activationBinding.activation
+        val error = desired - activation
 
-        val corrected = errorCorrectionFunction.correct(activationBinding, error)
+        val corrected = errorCorrectionFunction.correct(neuron, inputs, error)
 
         val correctedBias = Complex(0.9999999999999997779553950749687, 4.36596232246989756666666666666666666666666666666666)
 

@@ -1,6 +1,5 @@
 package com.wallace.machinelearning.mlmvn.activation
 
-import com.wallace.machinelearning.mlmvn.NeuralInputBinding
 import com.wallace.machinelearning.mlmvn.Neuron
 import com.wallace.math.Complex
 
@@ -34,22 +33,8 @@ class DiscreteActivationFunction(private val numberOfSectors: Int) : ActivationF
         sectors.map { Complex.exp(Complex.I * it) }
     }
 
-    override fun activateTrain(neuron: Neuron, inputs: List<Complex>): NeuralTrainingActivationBinding {
-        val neuralInputBinding = NeuralInputBinding(neuron, inputs)
-        return activateTrain(neuralInputBinding)
-    }
-
-    override fun activateTrain(neuralInputBinding: NeuralInputBinding): NeuralTrainingActivationBinding {
-        val activation = activate(neuralInputBinding)
-        return NeuralTrainingActivationBinding(neuralInputBinding, activation)
-    }
-
     override fun activate(neuron: Neuron, inputs: List<Complex>): Complex {
-        return activate(NeuralInputBinding(neuron, inputs))
-    }
-
-    private fun activate(neuralInputBinding: NeuralInputBinding): Complex {
-        val argument = neuralInputBinding.weightedSum.argument
+        val argument = neuron.weightedSum(inputs).argument
 
         for (i in 0 until numberOfSectors) {
             if (i == numberOfSectors - 1) {
